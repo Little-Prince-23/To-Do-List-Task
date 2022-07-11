@@ -15,9 +15,16 @@ function eventListeners() {
 function addButtonFunc() {
   const newItem = input.value.trim();
   input.value = "";
-  addItemUI(newItem);
+  if(newItem === ""){
+      alert("Tapsiriq elave edin!!!")
+  }else{
+
+      addItemUI(newItem);
+  }
+
 }
 
+//Add function
 function addItemUI(newItem) {
   const listItem = document.createElement("li");
   listItem.className =
@@ -34,6 +41,7 @@ function addItemUI(newItem) {
   console.log(listItem);
 }
 
+//Delete Function
 function deleteItem(e) {
   if (e.target.className === "delete-item btn btn-warning") {
     e.target.parentElement.remove();
