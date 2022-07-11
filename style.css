@@ -1,0 +1,6 @@
+.container {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  height: 30rem;
+  overflow-y: auto;
+}
