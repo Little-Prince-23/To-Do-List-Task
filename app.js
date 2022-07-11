@@ -15,14 +15,37 @@ function eventListeners() {
 function addButtonFunc() {
   const newItem = input.value.trim();
   input.value = "";
-  if(newItem === ""){
-      alert("Tapsiriq elave edin!!!")
-  }else{
-
-      addItemUI(newItem);
+  if (newItem === "") {
+    alert("Tapsiriq elave edin!!!");
+  } else {
+    addItemStorage(newItem);
+    addItemUI(newItem);
   }
-
 }
+
+//Add Storage Function
+
+function getTodosFromStorage(){
+    let todos;
+    
+    if(localStorage.getItem("todos") === null){
+        todos = []
+    }else{
+        todos = JSON.parse(localStorage.getItem("todos"))
+    }
+    return todos;
+}
+
+function addItemStorage(newItem){
+    let todos = getTodosFromStorage();
+    todos.push(newItem);
+    localStorage.setItem("todos", JSON.stringify(todos))
+}
+
+//Clear Storage Function
+
+
+
 
 //Add function
 function addItemUI(newItem) {
